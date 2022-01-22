@@ -89,11 +89,7 @@ const App = () => {
     const handleUpdateUser = (userName, userDescription) => {
         api.setUserInfo(userName, userDescription)
             .then((data) => {
-                setCurrentUser({
-                    name: data.name,
-                    about: data.about,
-                    avatar: data.avatar,
-                })
+                setCurrentUser(data.data)
             })
             .then(() => {
                 closeAllPopup()
@@ -108,6 +104,7 @@ const App = () => {
                     name: data.name,
                     about: data.about,
                     avatar: data.avatar,
+                    _id: data._id,
                 })
             })
             .then(() => {
