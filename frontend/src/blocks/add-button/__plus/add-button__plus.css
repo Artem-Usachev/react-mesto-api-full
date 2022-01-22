@@ -1,0 +1,23 @@
+.add-button__plus {
+    width: 22px;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1279px) {
+    .add-button__plus {
+        width: 18px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .add-button__plus {
+        width: 13px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .add-button__plus {
+        width: 16px;
+    }
+}

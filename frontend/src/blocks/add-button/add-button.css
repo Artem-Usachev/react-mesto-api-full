@@ -1,0 +1,44 @@
+.add-button {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 1);
+    border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    position: absolute;
+    right: 0;
+    transition: 0.5s ease all;
+    padding: 0;
+    outline: none;
+}
+
+.add-button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+    .add-button {
+        width: 120px;
+        height: 40px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .add-button {
+        width: 90px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .add-button {
+        margin-left: 0;
+        position: relative;
+        margin-top: 33px;
+        width: 282px;
+        height: 50px;
+    }
+}

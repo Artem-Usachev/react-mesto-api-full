@@ -1,0 +1,46 @@
+.info__setting-box {
+    border: 1px solid #FFFFFF;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: 0.5s ease all;
+    margin-left: 18px;
+    margin-bottom: 9px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 1);
+    outline: none;
+}
+
+.info__setting-box:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 1279px) {
+    .info__setting-box {
+        width: 19px;
+        height: 19px;
+        margin-left: 14px;
+        margin-bottom: 7px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .info__setting-box {
+        width: 14px;
+        height: 14px;
+        margin-left: 11px;
+        margin-bottom: 6px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .info__setting-box {
+        width: 18px;
+        height: 18px;
+        margin-left: 10px;
+        margin-bottom: 7px;
+    }
+}

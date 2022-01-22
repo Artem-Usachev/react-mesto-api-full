@@ -1,0 +1,14 @@
+.text-error {
+    font-size: 12px;
+    color: red;
+    margin: 5px 36px 0;
+    max-width: 358px;
+}
+
+@media screen and (max-width: 539px) {
+    .text-error {
+        max-width: 238px;
+        margin-left: 22px;
+        margin-right: 22px;
+    }
+}

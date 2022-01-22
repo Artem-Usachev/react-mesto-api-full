@@ -1,0 +1,12 @@
+.header__entrance-button {
+    border: none;
+    background-color: black;
+    color: white;
+    transition: 1s ease all;
+    margin: 0 0 0 24px;
+    padding: 0;
+}
+.header__entrance-button:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}

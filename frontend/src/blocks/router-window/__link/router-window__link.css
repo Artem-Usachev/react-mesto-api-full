@@ -1,0 +1,9 @@
+.router-window__link {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: 1s ease all;
+}
+.router-window__link:hover {
+    opacity: 0.6;
+}

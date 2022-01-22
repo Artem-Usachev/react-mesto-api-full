@@ -1,0 +1,6 @@
+.header__box {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0 0;
+    font-size: 18px;
+}

@@ -1,0 +1,40 @@
+.place__heart {
+    background-image: url(../../../images/heart.svg);
+    height: 19px;
+    width: 22px;
+    border-radius: 0px;
+    transition: 0.5s ease all;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: rgba(250, 250, 250, 1);
+    border: none;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.place__heart:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+@media screen and (max-width: 1279px) {
+    .place__heart {
+        width: 18px;
+        height: 15px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .place__heart {
+        width: 13px;
+        height: 11px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .place__heart {
+        width: 22px;
+        height: 19px;
+    }
+}

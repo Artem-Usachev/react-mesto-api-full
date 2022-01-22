@@ -1,0 +1,19 @@
+.info__pen-image {
+    width: 10px;
+    height: 10px;
+    display: block;
+}
+
+@media screen and (max-width: 1279px) {
+    .info__pen-image {
+        width: 9px;
+        height: 9px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .info__pen-image {
+        width: 8px;
+        height: 8px;
+    }
+}

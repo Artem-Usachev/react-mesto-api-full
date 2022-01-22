@@ -1,0 +1,35 @@
+.avatar-box__backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    top: 0;
+    left: 0;
+    margin: 0 auto;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s linear;
+}
+
+@media screen and (max-width: 1279px) {
+    .avatar-box__backdrop {
+        width: 96px;
+        height: 96px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .avatar-box__backdrop {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .avatar-box__backdrop {
+        width: 120px;
+        height: 120px;
+    }
+}

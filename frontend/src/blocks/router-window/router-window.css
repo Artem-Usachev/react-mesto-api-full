@@ -1,0 +1,8 @@
+.router-window {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+    max-width: 358px;
+    margin: 60px auto 80px;
+}

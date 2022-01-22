@@ -1,0 +1,27 @@
+.footer {
+    margin: 67px auto 0;
+    color: rgba(84, 84, 84, 1);
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 1);
+    width: 100vw;
+}
+
+@media screen and (max-width: 1279px) {
+    .footer {
+        margin-top: 53px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .footer {
+        margin-top: 40px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .footer {
+        left: 19px;
+        margin-top: 48px;
+    }
+}

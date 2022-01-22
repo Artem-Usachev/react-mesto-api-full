@@ -1,0 +1,32 @@
+.avatar-box__avatar {
+    object-fit: cover;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+}
+
+@media screen and (max-width: 1279px) {
+    .avatar-box__avatar {
+        width: 96px;
+        height: 96px;
+        margin-right: 24px;
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .avatar-box__avatar {
+        width: 72px;
+        height: 72px;
+        margin-right: 18px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .avatar-box__avatar {
+        width: 120px;
+        height: 120px;
+        margin-right: 0;
+        margin-bottom: 26px;
+    }
+}

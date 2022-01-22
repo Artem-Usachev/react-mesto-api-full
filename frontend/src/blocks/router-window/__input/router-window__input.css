@@ -1,0 +1,10 @@
+.router-window__input {
+    background-color: black;
+    color: rgba(204, 204, 204, 1);
+    outline: none;
+    border: none;
+    width: 100%;
+    border-bottom: 2px solid rgba(204, 204, 204, 1);
+    padding-bottom: 13px;
+    margin: 0 0 43px;
+}

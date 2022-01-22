@@ -1,0 +1,16 @@
+.router-window__button_registration {
+    height: 50px;
+    width: 358px;
+    color: black;
+    background-color: white;
+    font-size: 18px;
+    font-weight: 400;
+    border-radius: 2px;
+    border: none;
+    transition: 1s ease all;
+    margin: 173px 0 0;
+}
+.router-window__button_registration:hover {
+    cursor: pointer;
+    opacity: 0.85;
+}

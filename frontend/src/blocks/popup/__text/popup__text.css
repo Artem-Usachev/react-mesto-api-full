@@ -1,0 +1,18 @@
+.popup__text {
+    font-size: 14px;
+    line-height: 17px;
+    outline: none;
+    border: none;
+    max-width: 358px;
+    width: 100%;
+    padding-bottom: 13px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    margin: 30px 36px 0;
+}
+
+@media screen and (max-width: 539px) {
+    .popup__text {
+        margin: 30px 22px 0;
+        max-width: 238px;
+    }
+}

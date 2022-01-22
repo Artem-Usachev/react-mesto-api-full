@@ -1,0 +1,9 @@
+.popup__exit-img {
+    width: 40px;
+}
+
+@media screen and (max-width: 426px) {
+    .popup__exit-img {
+        width: 26px;
+    }
+}
