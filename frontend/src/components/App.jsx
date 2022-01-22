@@ -186,7 +186,7 @@ const App = () => {
         const getInitialCards = () => {
             api.getInitialCards()
                 .then((res) => {
-                    setCards(res)
+                    setCards(res.reverse())
                 })
                 .catch((err) => console.log(err))
         }

@@ -61,7 +61,15 @@ const login = (req, res, next) => {
         NODE_ENV === 'production' ? JWT_SECRET : 'strongest-key-ever',
         { expiresIn: '7d' },
       );
-      res.status(200).send({ token });
+      res
+        .status(200)
+        .send({
+          name: user.name,
+          about: user.about,
+          avatar: user.avatar,
+          email: user.email,
+          token,
+        });
     })
     .catch((err) => {
       if (err.name === 'TypeError') {
@@ -74,19 +82,23 @@ const login = (req, res, next) => {
 const createUser = (req, res, next) => {
   bcrypt
     .hash(req.body.password, 10)
-    .then((hash) => User.create({
-      name: req.body.name,
-      about: req.body.about,
-      avatar: req.body.avatar,
-      email: req.body.email,
-      password: hash,
-    }))
-    .then((user) => res.status(200).send({
-      name: user.name,
-      avatar: user.avatar,
-      email: user.email,
-      about: user.about,
-    }))
+    .then((hash) =>
+      User.create({
+        name: req.body.name,
+        about: req.body.about,
+        avatar: req.body.avatar,
+        email: req.body.email,
+        password: hash,
+      }),
+    )
+    .then((user) =>
+      res.status(200).send({
+        name: user.name,
+        avatar: user.avatar,
+        email: user.email,
+        about: user.about,
+      }),
+    )
     .catch((err) => {
       if (err.code === 11000) {
         const MongoError = new ConflictError('Пользователь с таким email уже зарегестрирован');

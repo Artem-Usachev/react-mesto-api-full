@@ -33,6 +33,7 @@ class Auth {
             .then((data) => {
                 if (data.token) {
                     localStorage.setItem('jwt', data.token)
+                    console.log(data)
                     return data
                 }
             })
