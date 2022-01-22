@@ -174,11 +174,11 @@ const App = () => {
             .catch((err) => {
                 console.log(err)
             })
-    }, [isAuthenticated, currentUser])
+    }, [])
 
     useEffect(() => {
         checkToken()
-    }, [])
+    }, [isAuthenticated])
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
