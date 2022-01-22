@@ -163,6 +163,7 @@ const App = () => {
         const token = localStorage.getItem('jwt')
         localStorage.removeItem('jwt', token)
         setAuthenticated(false)
+        setCurrentUser({})
     }
     useEffect(() => {
         if (isAuthenticated) {
