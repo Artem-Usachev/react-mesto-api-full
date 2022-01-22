@@ -61,15 +61,7 @@ const login = (req, res, next) => {
         NODE_ENV === 'production' ? JWT_SECRET : 'strongest-key-ever',
         { expiresIn: '7d' },
       );
-      res
-        .status(200)
-        .send({
-          name: user.name,
-          about: user.about,
-          avatar: user.avatar,
-          email: user.email,
-          token,
-        });
+      res.status(200).send({ token });
     })
     .catch((err) => {
       if (err.name === 'TypeError') {
