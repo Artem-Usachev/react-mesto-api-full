@@ -89,7 +89,7 @@ const App = () => {
     const handleUpdateUser = (userName, userDescription) => {
         api.setUserInfo(userName, userDescription)
             .then((data) => {
-                setCurrentUser(data.data)
+                setCurrentUser(data)
             })
             .then(() => {
                 closeAllPopup()
