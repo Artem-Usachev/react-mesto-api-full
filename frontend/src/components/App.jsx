@@ -180,7 +180,7 @@ const App = () => {
             api.getUserInfo()
                 .then((res) => {
                     console.log('user:', res)
-                    setCurrentUser(res)
+                    setCurrentUser(res.user)
                 })
                 .catch((err) => console.log(err))
         }
