@@ -166,18 +166,19 @@ const App = () => {
         setCurrentUser({ about: '', avatar: '', email: '', name: '', _id: '' })
     }
     useEffect(() => {
-        Promise.all([api.getUserInfo(), api.getInitialCards()])
-            .then(([userData, cardsList]) => {
-                setCurrentUser(userData.user)
-                setCards(cardsList.reverse())
-            })
-            .catch((err) => {
-                console.log(err)
-            })
-    }, [])
-
-    useEffect(() => {
         checkToken()
+    }, [])
+    useEffect(() => {
+        if (isAuthenticated) {
+            Promise.all([api.getUserInfo(), api.getInitialCards()])
+                .then(([userData, cardsList]) => {
+                    setCurrentUser(userData.user)
+                    setCards(cardsList.reverse())
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
     }, [isAuthenticated])
 
     return (
