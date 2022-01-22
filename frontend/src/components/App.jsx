@@ -160,7 +160,7 @@ const App = () => {
         if (jwt) {
             auth.checkToken(jwt)
                 .then((res) => {
-                    setUserEmail(res.data.email)
+                    setUserEmail(res.user.email)
                     setAuthenticated(true)
                 })
                 .catch((err) => console.log(err))
