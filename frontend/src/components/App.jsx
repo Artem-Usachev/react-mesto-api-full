@@ -171,8 +171,8 @@ const App = () => {
         if (isAuthenticated) {
             Promise.all([api.getUserInfo(), api.getInitialCards()])
                 .then(([userData, cardsList]) => {
-                    setCurrentUser(userData.data)
-                    setCards(cardsList.data.reverse())
+                    setCurrentUser(userData.user)
+                    setCards(cardsList.cards.reverse())
                 })
                 .catch((err) => {
                     console.log(err)
