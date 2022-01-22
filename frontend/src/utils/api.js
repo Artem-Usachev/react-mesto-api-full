@@ -62,7 +62,9 @@ class Api {
         return fetch(`${this._address}/cards/likes/${card._id}`, {
             method: isLike ? 'DELETE' : 'PUT',
             headers: this._headers,
-        }).then(this._cheackServerResponse)
+        })
+            .then(console.log(card))
+            .then(this._cheackServerResponse)
     }
 }
 const api = new Api({
