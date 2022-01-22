@@ -183,6 +183,7 @@ const App = () => {
             api.getUserInfo()
                 .then((res) => {
                     setCurrentUser(res.user)
+                    console.log(res.user)
                 })
                 .catch((err) => console.log(err))
         }
