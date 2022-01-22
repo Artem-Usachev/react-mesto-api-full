@@ -163,24 +163,22 @@ const App = () => {
         const token = localStorage.getItem('jwt')
         localStorage.removeItem('jwt', token)
         setAuthenticated(false)
-        setCurrentUser({})
+        setCurrentUser({ about: '', avatar: '', email: '', name: '', _id: '' })
     }
     useEffect(() => {
-        if (isAuthenticated) {
-            Promise.all([api.getUserInfo(), api.getInitialCards()])
-                .then(([userData, cardsList]) => {
-                    setCurrentUser(userData.user)
-                    setCards(cardsList.reverse())
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
-        }
-    }, [isAuthenticated])
+        Promise.all([api.getUserInfo(), api.getInitialCards()])
+            .then(([userData, cardsList]) => {
+                setCurrentUser(userData.user)
+                setCards(cardsList.reverse())
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
 
     useEffect(() => {
         checkToken()
-    }, [])
+    }, [isAuthenticated])
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
