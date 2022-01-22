@@ -100,12 +100,7 @@ const App = () => {
     const handleUpdateAvatar = (avatar) => {
         api.setUserAvatar(avatar)
             .then((data) => {
-                setCurrentUser({
-                    name: data.name,
-                    about: data.about,
-                    avatar: data.avatar,
-                    _id: data._id,
-                })
+                setCurrentUser(data)
             })
             .then(() => {
                 closeAllPopup()
@@ -174,7 +169,7 @@ const App = () => {
     }
     useEffect(() => {
         checkToken()
-    }, [isAuthenticated])
+    }, [])
     useEffect(() => {
         const getUserInfo = () => {
             api.getUserInfo()
@@ -193,7 +188,7 @@ const App = () => {
         }
         getUserInfo()
         getInitialCards()
-    }, [])
+    }, [isAuthenticated])
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
