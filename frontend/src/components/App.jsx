@@ -172,7 +172,7 @@ const App = () => {
             Promise.all([api.getUserInfo(), api.getInitialCards()])
                 .then(([userData, cardsList]) => {
                     setCurrentUser(userData.user)
-                    setCards(cardsList.cards.reverse())
+                    setCards(cardsList.reverse())
                 })
                 .catch((err) => {
                     console.log(err)
