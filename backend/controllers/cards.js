@@ -54,10 +54,10 @@ const deleteCard = (req, res, next) => {
     });
 };
 const likeCard = (req, res, next) => {
-  Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: req.user._id } }, { new: true })
+  Card.findById(req.params.cardId)
     .then((cardLiked) => {
       if (!cardLiked) {
-        res.status(200).send({ messeg: cardLiked });
+        throw new NotFoundError('Карточка не найдена');
       } else res.status(200).send(cardLiked);
     })
     .catch((err) => {
