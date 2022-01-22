@@ -11,6 +11,7 @@ const Card = ({ card, onCardClick, onCardLike, onCardDelete }) => {
         onCardClick(card)
     }
     const handleLikeClick = (card) => {
+        console.log(card)
         onCardLike(card)
     }
     const isOwn = card.owner === currentUser._id

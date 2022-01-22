@@ -158,7 +158,7 @@ const App = () => {
                 .catch((err) => console.log(err))
         }
     }
-    console.log('user:', currentUser)
+
     const handleLogOut = () => {
         const token = localStorage.getItem('jwt')
         localStorage.removeItem('jwt', token)
