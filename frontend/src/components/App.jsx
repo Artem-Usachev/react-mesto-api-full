@@ -168,27 +168,21 @@ const App = () => {
         setAuthenticated(false)
     }
     useEffect(() => {
+        if (isAuthenticated) {
+            Promise.all([api.getUserInfo(), api.getInitialCards()])
+                .then(([userData, cardsList]) => {
+                    setCurrentUser(userData.data)
+                    setCards(cardsList.data.reverse())
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
+        }
+    }, [isAuthenticated])
+
+    useEffect(() => {
         checkToken()
     }, [])
-    useEffect(() => {
-        const getUserInfo = () => {
-            api.getUserInfo()
-                .then((res) => {
-                    setCurrentUser(res.user)
-                    console.log(res.user)
-                })
-                .catch((err) => console.log(err))
-        }
-        const getInitialCards = () => {
-            api.getInitialCards()
-                .then((res) => {
-                    setCards(res.reverse())
-                })
-                .catch((err) => console.log(err))
-        }
-        getUserInfo()
-        getInitialCards()
-    }, [isAuthenticated])
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
