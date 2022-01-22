@@ -59,7 +59,7 @@ class Api {
     }
 
     changeLikeCardStatus(card, isLike) {
-        return fetch(`${this._address}/cards/likes/${card._id}`, {
+        return fetch(`${this._address}/cards/${card._id}/likes`, {
             method: isLike ? 'DELETE' : 'PUT',
             headers: this._headers,
         }).then(this._cheackServerResponse)
