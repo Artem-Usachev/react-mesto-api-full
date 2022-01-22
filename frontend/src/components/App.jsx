@@ -42,6 +42,9 @@ const App = () => {
 
     const handleCardLike = (card) => {
         const isLiked = card.likes.some((i) => i._id === currentUser._id)
+        console.log(card)
+        console.log(currentUser)
+
         api.changeLikeCardStatus(card, isLiked)
             .then((newCard) => {
                 setCards((cards) => cards.map((c) => (c._id === card._id ? newCard : c)))
@@ -179,7 +182,6 @@ const App = () => {
         const getUserInfo = () => {
             api.getUserInfo()
                 .then((res) => {
-                    console.log('user:', res)
                     setCurrentUser(res.user)
                 })
                 .catch((err) => console.log(err))
@@ -187,8 +189,7 @@ const App = () => {
         const getInitialCards = () => {
             api.getInitialCards()
                 .then((res) => {
-                    console.log('cards:', res)
-                    setCards(res.reverse())
+                    setCards(res.cards.reverse())
                 })
                 .catch((err) => console.log(err))
         }
