@@ -57,7 +57,7 @@ const likeCard = (req, res, next) => {
   Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: req.user._id } }, { new: true })
     .then((cardLiked) => {
       if (!cardLiked) {
-        throw new NotFoundError('Карточка не найдена');
+        res.status(200).send({ messeg: cardLiked });
       } else res.status(200).send(cardLiked);
     })
     .catch((err) => {

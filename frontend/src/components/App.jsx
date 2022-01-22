@@ -42,7 +42,6 @@ const App = () => {
 
     const handleCardLike = (card) => {
         const isLiked = card.likes.some((i) => i._id === currentUser._id)
-        console.log(card._id)
         api.changeLikeCardStatus(card, isLiked)
             .then((newCard) => {
                 setCards((cards) => cards.map((c) => (c._id === card._id ? newCard : c)))
