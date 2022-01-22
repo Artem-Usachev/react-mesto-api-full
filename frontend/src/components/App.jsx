@@ -42,9 +42,6 @@ const App = () => {
 
     const handleCardLike = (card) => {
         const isLiked = card.likes.some((i) => i._id === currentUser._id)
-        console.log('card:', card)
-        console.log('user:', currentUser)
-        console.log('newCard', isLiked)
         api.changeLikeCardStatus(card, isLiked)
             .then((newCard) => {
                 setCards((cards) => cards.map((c) => (c._id === card._id ? newCard : c)))
@@ -161,7 +158,7 @@ const App = () => {
                 .catch((err) => console.log(err))
         }
     }
-
+    console.log('user:', currentUser)
     const handleLogOut = () => {
         const token = localStorage.getItem('jwt')
         localStorage.removeItem('jwt', token)
