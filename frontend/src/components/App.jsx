@@ -174,7 +174,7 @@ const App = () => {
             .catch((err) => {
                 console.log(err)
             })
-    }, [isAuthenticated])
+    }, [isAuthenticated, currentUser])
 
     useEffect(() => {
         checkToken()
