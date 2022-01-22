@@ -179,6 +179,7 @@ const App = () => {
         const getUserInfo = () => {
             api.getUserInfo()
                 .then((res) => {
+                    console.log('user:', res)
                     setCurrentUser(res)
                 })
                 .catch((err) => console.log(err))
@@ -186,6 +187,7 @@ const App = () => {
         const getInitialCards = () => {
             api.getInitialCards()
                 .then((res) => {
+                    console.log('cards:', res)
                     setCards(res.reverse())
                 })
                 .catch((err) => console.log(err))
