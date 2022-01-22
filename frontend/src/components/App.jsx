@@ -178,7 +178,7 @@ const App = () => {
 
     useEffect(() => {
         checkToken()
-    }, [isAuthenticated])
+    }, [])
 
     return (
         <CurrentUserContext.Provider value={currentUser}>
