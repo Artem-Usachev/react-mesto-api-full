@@ -17,10 +17,7 @@ const createCard = (req, res, next) => {
     .then((card) => res.status(200).send(card))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        const ValidationError = new BadRequestError(
-          'Переданы не корректные данные в метод создания карточки',
-        );
-        next(ValidationError);
+        next(new BadRequestError('Переданы не корректные данные в метод создания карточки'));
       }
       next(err);
     });
@@ -47,8 +44,7 @@ const deleteCard = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        const CastError = new BadRequestError('Передан не корректный id карточки');
-        next(CastError);
+        next(new BadRequestError('Передан не корректный id карточки'));
       }
       next(err);
     });
@@ -62,8 +58,7 @@ const likeCard = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        const CastError = new BadRequestError('Передан не корректный id карточки');
-        next(CastError);
+        next(new BadRequestError('Передан не корректный id карточки'));
       }
       next(err);
     });
@@ -78,8 +73,7 @@ const dislikeCard = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        const CastError = new BadRequestError('Передан не корректный id карточки');
-        next(CastError);
+        next(new BadRequestError('Передан не корректный id карточки'));
       }
       next(err);
     });

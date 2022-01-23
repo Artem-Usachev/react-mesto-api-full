@@ -27,8 +27,7 @@ const getCurrentUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        const CastError = new BadRequestError('Передан не корректный id пользователя');
-        next(CastError);
+        next(new BadRequestError('Передан не корректный id пользователя'));
       }
       next(err);
     });
@@ -44,8 +43,7 @@ const getUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'CastError') {
-        const CastError = new BadRequestError('Передан не корректный id пользователя');
-        next(CastError);
+        next(new BadRequestError('Передан не корректный id пользователя'));
       }
       next(err);
     });
@@ -63,44 +61,32 @@ const login = (req, res, next) => {
       );
       res.status(200).send({ token });
     })
-    .catch((err) => {
-      if (err.name === 'TypeError') {
-        const TypeError = new UnauthorizedError('Неправильные почта или пароль');
-        next(TypeError);
-      }
-      next(err);
+    .catch(() => {
+      next(new UnauthorizedError('Неправильные почта или пароль'));
     });
 };
 const createUser = (req, res, next) => {
   bcrypt
     .hash(req.body.password, 10)
-    .then((hash) =>
-      User.create({
-        name: req.body.name,
-        about: req.body.about,
-        avatar: req.body.avatar,
-        email: req.body.email,
-        password: hash,
-      }),
-    )
-    .then((user) =>
-      res.status(200).send({
-        name: user.name,
-        avatar: user.avatar,
-        email: user.email,
-        about: user.about,
-      }),
-    )
+    .then((hash) => User.create({
+      name: req.body.name,
+      about: req.body.about,
+      avatar: req.body.avatar,
+      email: req.body.email,
+      password: hash,
+    }))
+    .then((user) => res.status(200).send({
+      name: user.name,
+      avatar: user.avatar,
+      email: user.email,
+      about: user.about,
+    }))
     .catch((err) => {
       if (err.code === 11000) {
-        const MongoError = new ConflictError('Пользователь с таким email уже зарегестрирован');
-        next(MongoError);
+        next(new ConflictError('Пользователь с таким email уже зарегестрирован'));
       }
       if (err.name === 'ValidationError') {
-        const ValidationError = new BadRequestError(
-          'Переданы некорректные данные в методы создания пользователя',
-        );
-        next(ValidationError);
+        next(new BadRequestError('Переданы некорректные данные в методы создания пользователя'));
       }
       next(err);
     });
@@ -117,10 +103,11 @@ const updateUserAvatar = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        const ValidationError = new BadRequestError(
-          'Переданы некорректные данные в методы обновления аватара пользователя',
+        next(
+          new BadRequestError(
+            'Переданы некорректные данные в методы обновления аватара пользователя',
+          ),
         );
-        next(ValidationError);
       }
       next(err);
     });
@@ -141,10 +128,7 @@ const updateUser = (req, res, next) => {
     })
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        const ValidationError = new BadRequestError(
-          'Переданы некорректные данные в методы обновления профиля',
-        );
-        next(ValidationError);
+        next(new BadRequestError('Переданы некорректные данные в методы обновления профиля'));
       }
       next(err);
     });
